@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gempaku - Mekanisme Terjadinya Gempa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#beranda">Gempaku</a>
+    <nav class="nav" aria-label="Navigasi utama">
+      <a href="#mekanisme">Mekanisme</a>
+      <a href="#patahan">Patahan</a>
+      <a href="#gelombang">Gelombang</a>
+      <a href="#simulasi">Simulasi</a>
+    </nav>
+    <button class="nav-toggle" type="button" aria-label="Buka menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <section id="beranda" class="hero">
+      <div class="hero-copy">
+        <p class="brand-mark">Gempaku</p>
+        <h1>Mekanisme terjadinya gempa bumi</h1>
+        <p class="lead">
+          Media interaktif yang menjelaskan bagaimana energi di dalam bumi
+          terlepas dan mengguncang permukaan.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#mekanisme">Pelajari mekanisme</a>
+          <a class="btn btn-ghost" href="#simulasi">Coba simulasi</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="earth">
+          <div class="earth-core"></div>
+          <div class="earth-mantle"></div>
+          <div class="fault-line"></div>
+          <div class="shockwave s1"></div>
+          <div class="shockwave s2"></div>
+          <div class="shockwave s3"></div>
+          <span class="epicenter"></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="mekanisme" class="section">
+      <header class="section-head">
+        <h2>Bagaimana gempa terjadi?</h2>
+        <p>Prosesnya berawal dari gerakan lempeng tektonik hingga pelepasan energi.</p>
+      </header>
+      <ol class="steps">
+        <li class="step" data-step="1">
+          <span class="step-num">01</span>
+          <h3>Gerakan lempeng</h3>
+          <p>Kerak bumi terdiri dari lempeng yang terus bergerak karena arus konveksi di mantel.</p>
+        </li>
+        <li class="step" data-step="2">
+          <span class="step-num">02</span>
+          <h3>Akumulasi tegangan</h3>
+          <p>Gesekan antar lempeng menahan gerakan, sehingga energi terbendung di sepanjang patahan.</p>
+        </li>
+        <li class="step" data-step="3">
+          <span class="step-num">03</span>
+          <h3>Pelepasan energi</h3>
+          <p>Ketika tegangan melebihi kekuatan batuan, patahan bergerak mendadak dan melepaskan energi.</p>
+        </li>
+        <li class="step" data-step="4">
+          <span class="step-num">04</span>
+          <h3>Gelombang seismik</h3>
+          <p>Energi merambat sebagai gelombang yang mengguncang tanah — itulah yang kita rasakan sebagai gempa.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="patahan" class="section section-alt">
+      <header class="section-head">
+        <h2>Tiga jenis patahan utama</h2>
+        <p>Arah gerakan batuan menentukan jenis patahan dan karakter gempanya.</p>
+      </header>
+      <div class="fault-tabs" role="tablist" aria-label="Jenis patahan">
+        <button class="fault-tab is-active" role="tab" aria-selected="true" data-fault="normal">Normal</button>
+        <button class="fault-tab" role="tab" aria-selected="false" data-fault="reverse">Naik</button>
+        <button class="fault-tab" role="tab" aria-selected="false" data-fault="strike">Geser</button>
+      </div>
+      <div class="fault-panel">
+        <div class="fault-diagram" id="faultDiagram" aria-hidden="true">
+          <svg viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="rockA" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#5a7a6a"/>
+                <stop offset="100%" stop-color="#3d5548"/>
+              </linearGradient>
+              <linearGradient id="rockB" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#7a8f6a"/>
+                <stop offset="100%" stop-color="#556348"/>
+              </linearGradient>
+            </defs>
+            <rect class="block left" x="40" y="70" width="160" height="100" rx="6" fill="url(#rockA)"/>
+            <rect class="block right" x="220" y="70" width="160" height="100" rx="6" fill="url(#rockB)"/>
+            <line class="fault-cut" x1="210" y1="50" x2="210" y2="190" stroke="#e8a54b" stroke-width="3" stroke-dasharray="6 4"/>
+            <path class="arrow left-arrow" d="M90 120 L130 120" stroke="#f3efe6" stroke-width="3" marker-end="url(#arrowHead)"/>
+            <path class="arrow right-arrow" d="M330 120 L290 120" stroke="#f3efe6" stroke-width="3" marker-end="url(#arrowHead)"/>
+            <defs>
+              <marker id="arrowHead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L6,3 L0,6 Z" fill="#f3efe6"/>
+              </marker>
+            </defs>
+          </svg>
+        </div>
+        <article class="fault-info">
+          <h3 id="faultTitle">Patahan Normal</h3>
+          <p id="faultDesc">Blok batuan saling menjauh. Blok di atas bidang patahan turun relatif terhadap blok di bawahnya. Umum terjadi di zona tarikan (ekstensi).</p>
+          <ul id="faultPoints">
+            <li>Gerakan: saling menjauh</li>
+            <li>Zona tipikal: rift valley</li>
+            <li>Contoh: Patahan di sepanjang Mid-Atlantic Ridge</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="gelombang" class="section">
+      <header class="section-head">
+        <h2>Gelombang seismik</h2>
+        <p>Energi gempa merambat dalam beberapa bentuk gelombang.</p>
+      </header>
+      <div class="wave-grid">
+        <article class="wave-item">
+          <div class="wave-visual" data-wave="p">
+            <span class="pulse"></span>
+            <span class="pulse"></span>
+            <span class="pulse"></span>
+          </div>
+          <h3>Gelombang P</h3>
+          <p>Gelombang primer — paling cepat, merambat dengan kompresi-regangan. Bisa melalui padat dan cair.</p>
+        </article>
+        <article class="wave-item">
+          <div class="wave-visual" data-wave="s">
+            <span class="shear"></span>
+            <span class="shear"></span>
+            <span class="shear"></span>
+            <span class="shear"></span>
+          </div>
+          <h3>Gelombang S</h3>
+          <p>Gelombang sekunder — lebih lambat, menggeser material ke samping. Tidak merambat di cairan.</p>
+        </article>
+        <article class="wave-item">
+          <div class="wave-visual" data-wave="surface">
+            <span class="surface-line"></span>
+          </div>
+          <h3>Gelombang permukaan</h3>
+          <p>Merambat di permukaan bumi. Biasanya paling merusak karena amplitudonya besar.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="simulasi" class="section section-alt">
+      <header class="section-head">
+        <h2>Simulasi pelepasan energi</h2>
+        <p>Geser tegangan hingga patahan “lepas” dan amati gelombang yang terbentuk.</p>
+      </header>
+      <div class="sim">
+        <div class="sim-controls">
+          <label for="stress">
+            Tegangan pada patahan
+            <span id="stressValue">35%</span>
+          </label>
+          <input type="range" id="stress" min="0" max="100" value="35" />
+          <button type="button" class="btn btn-primary" id="releaseBtn">Lepaskan energi</button>
+          <p class="sim-status" id="simStatus">Tegangan masih tertahan. Naikkan hingga mendekati batas.</p>
+        </div>
+        <div class="sim-stage" id="simStage" aria-live="polite">
+          <div class="plate plate-a"></div>
+          <div class="plate plate-b"></div>
+          <div class="strain-bar"><i id="strainFill"></i></div>
+          <div class="quake-rings" id="quakeRings"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quiz-section">
+      <header class="section-head">
+        <h2>Cek pemahaman</h2>
+        <p>Satu pertanyaan singkat untuk menguji apa yang sudah dipelajari.</p>
+      </header>
+      <div class="quiz" id="quiz">
+        <p class="quiz-q">Apa yang langsung menyebabkan guncangan yang kita rasakan saat gempa?</p>
+        <div class="quiz-options">
+          <button type="button" data-correct="false">Angin kencang di atmosfer</button>
+          <button type="button" data-correct="true">Gelombang seismik dari pelepasan energi patahan</button>
+          <button type="button" data-correct="false">Rotasi bumi yang mendadak berubah</button>
+        </div>
+        <p class="quiz-feedback" id="quizFeedback" hidden></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>Gempaku</strong> — media pembelajaran mekanisme gempa bumi.</p>
+    <p>HTML · CSS · JavaScript</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
